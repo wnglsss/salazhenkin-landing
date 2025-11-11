@@ -212,6 +212,47 @@
             letter-spacing: 0.5px;
         }
 
+        /* Screenshots Section */
+        .screenshots {
+            text-align: center;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .screenshot-card {
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid var(--border-glass);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot-card:hover .screenshot-image {
+            transform: scale(1.05);
+        }
+
+        .screenshot-caption {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         /* Technology Stack */
         .tech-stack {
             display: flex;
@@ -385,6 +426,10 @@
                 padding: 1.5rem;
             }
             
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -416,6 +461,33 @@
             <div class="cta-buttons">
                 <a href="#financials" class="cta-button">View Financials</a>
                 <a href="#contact" class="button-secondary">Schedule Due Diligence</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots -->
+    <section class="section" id="screenshots">
+        <h2 class="section-title">App Interface</h2>
+        <div class="screenshots-grid">
+            <div class="screenshot-card glass fade-in">
+                <img src="1.jpg" alt="AI Legal Assistant Chat Interface" class="screenshot-image">
+                <p class="screenshot-caption">AI Legal Assistant - Real-time legal consultations</p>
+            </div>
+            <div class="screenshot-card glass fade-in">
+                <img src="2.jpg" alt="Legal News & Updates" class="screenshot-image">
+                <p class="screenshot-caption">Live Legal News & Legislative Updates</p>
+            </div>
+            <div class="screenshot-card glass fade-in">
+                <img src="3.jpg" alt="App Settings" class="screenshot-image">
+                <p class="screenshot-caption">Customizable User Settings</p>
+            </div>
+            <div class="screenshot-card glass fade-in">
+                <img src="4.jpg" alt="Detailed Legal Articles" class="screenshot-image">
+                <p class="screenshot-caption">Detailed Legal Documentation</p>
+            </div>
+            <div class="screenshot-card glass fade-in">
+                <img src="5.jpg" alt="Legal Advice Examples" class="screenshot-image">
+                <p class="screenshot-caption">Comprehensive Legal Guidance</p>
             </div>
         </div>
     </section>
