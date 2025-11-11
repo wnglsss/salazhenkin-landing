@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALAZHENKIN - Premium AI Legal Assistant | Acquisition Opportunity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            --accent-red: #ff3b30;
+            --accent-green: #00d664;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --border-glass: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-accent {
+            color: var(--accent-red);
+        }
+
+        .cta-button {
+            background: var(--accent-red);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #ff5249;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 59, 48, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+        }
+
+        /* Metrics */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .metric-card {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Technology Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .tech-item {
+            padding: 1.5rem 2rem;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .tech-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-desc {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Revenue Streams */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .revenue-card {
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revenue-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-green);
+        }
+
+        .revenue-percentage {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .revenue-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Roadmap */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .roadmap-item {
+            padding: 2rem;
+        }
+
+        .roadmap-phase {
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roadmap-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .button-secondary:hover {
+            background: var(--bg-glass);
+            border-color: var(--accent-red);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .feature-card, .metric-card, .revenue-card, .roadmap-item {
+                padding: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button, .button-secondary {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">SALA<span class="logo-accent">ZHENKIN</span></div>
+            <a href="#contact" class="cta-button">Acquire Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <div class="hero-badge">ACQUISITION OPPORTUNITY</div>
+            <h1 class="hero-title">Premium AI Legal Assistant<br>Ready for Acquisition</h1>
+            <p class="hero-subtitle">Fully developed mobile app with proven revenue streams. Turnkey solution for immediate market entry in the booming LegalTech sector.</p>
+            <div class="cta-buttons">
+                <a href="#financials" class="cta-button">View Financials</a>
+                <a href="#contact" class="button-secondary">Schedule Due Diligence</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Highlights -->
+    <section class="section" id="highlights">
+        <h2 class="section-title">Business Highlights</h2>
+        <div class="features-grid">
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Ready-to-Launch</h3>
+                <p class="feature-desc">Fully developed and tested mobile application. Immediate market entry capability.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Proven Revenue</h3>
+                <p class="feature-desc">Multiple monetization streams with strong growth potential and predictable income.</p>
+            </div>
+            <div class="feature-card glass fade-in">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Scalable Platform</h3>
+                <p class="feature-desc">Built on modern tech stack with 400% MAU growth projection in first year.</p>
+            </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics">
+            <div class="metric-card glass fade-in">
+                <div class="metric-value">3</div>
+                <div class="metric-label">Revenue Streams</div>
+            </div>
+            <div class="metric-card glass fade-in">
+                <div class="metric-value">400%</div>
+                <div class="metric-label">Projected MAU Growth</div>
+            </div>
+            <div class="metric-card glass fade-in">
+                <div class="metric-value">24/7</div>
+                <div class="metric-label">AI Legal Support</div>
+            </div>
+            <div class="metric-card glass fade-in">
+                <div class="metric-value">100%</div>
+                <div class="metric-label">Turnkey Solution</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section" id="technology">
+        <h2 class="section-title">Technology Stack</h2>
+        <div class="tech-stack">
+            <div class="tech-item glass fade-in">
+                <div class="tech-name">React Native</div>
+                <div class="tech-desc">Cross-platform Mobile</div>
+            </div>
+            <div class="tech-item glass fade-in">
+                <div class="tech-name">FastAPI</div>
+                <div class="tech-desc">High-speed Backend</div>
+            </div>
+            <div class="tech-item glass fade-in">
+                <div class="tech-name">GigaChat AI</div>
+                <div class="tech-desc">Legal AI Integration</div>
+            </div>
+            <div class="tech-item glass fade-in">
+                <div class="tech-name">Android & iOS</div>
+                <div class="tech-desc">Dual Platform Support</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financials -->
+    <section class="section" id="financials">
+        <h2 class="section-title">Revenue Streams</h2>
+        <div class="revenue-grid">
+            <div class="revenue-card glass fade-in">
+                <div class="revenue-percentage">100%</div>
+                <h3 class="revenue-title">Premium Subscriptions</h3>
+                <p class="feature-desc">Monthly recurring revenue from individual users and businesses seeking unlimited legal consultations.</p>
+            </div>
+            <div class="revenue-card glass fade-in">
+                <div class="revenue-percentage">75%</div>
+                <h3 class="revenue-title">Legal Partnerships</h3>
+                <p class="feature-desc">Revenue sharing with law firms for case referrals and premium service upgrades.</p>
+            </div>
+            <div class="revenue-card glass fade-in">
+                <div class="revenue-percentage">50%</div>
+                <h3 class="revenue-title">White-label Solutions</h3>
+                <p class="feature-desc">Enterprise licensing to corporations and government entities seeking customized legal AI solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section" id="roadmap">
+        <h2 class="section-title">Growth Roadmap</h2>
+        <div class="roadmap">
+            <div class="roadmap-item glass fade-in">
+                <div class="roadmap-phase">Q1 2024</div>
+                <h3 class="roadmap-title">Government Integration</h3>
+                <p class="feature-desc">Integration with official legal databases and government services for enhanced credibility.</p>
+            </div>
+            <div class="roadmap-item glass fade-in">
+                <div class="roadmap-phase">Q2 2024</div>
+                <h3 class="roadmap-title">International Expansion</h3>
+                <p class="feature-desc">Launch in EU and US markets with localized legal systems and multilingual support.</p>
+            </div>
+            <div class="roadmap-item glass fade-in">
+                <div class="roadmap-phase">Q3 2024</div>
+                <h3 class="roadmap-title">Premium Features</h3>
+                <p class="feature-desc">AI-powered document generation for legal contracts and court filings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="contact">
+        <h2 class="cta-title">Ready for Acquisition</h2>
+        <p class="cta-subtitle">Complete source code, documentation, and technical support included. Opportunity for immediate market leadership in LegalTech.</p>
+        <div class="cta-buttons">
+            <a href="mailto:acquisition@salazhenkin.com" class="cta-button">Begin Acquisition Process</a>
+            <a href="#financials" class="button-secondary">View Detailed Financials</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 SALAZHENKIN AI Legal Assistant. All rights reserved. Acquisition Opportunity.</p>
+    </footer>
+
+    <script>
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
